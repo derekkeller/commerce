@@ -20,15 +20,16 @@
     <%= f.date_select :date, :order => [:month, :day, :year], :include_blank => true %>
   </p>
   <p>
-    <%= f.label :shipping %>
-    <%= f.select :shipping, ["Yes", "No"] %>
+    <%= f.label :shipping, "Shipped?" %>
+    <%= f.select :shipping, [["Yes", true], ["No", false]] %>
   </p>
   <p>
     <%= f.label :revenue %>
     <%= f.text_field :revenue %>
   </p>
-  <p>
+  <p><div class="actions">
     <%= f.submit %>
+		</div>
   </p>
 
 <% end %>

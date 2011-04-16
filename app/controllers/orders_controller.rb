@@ -1,4 +1,7 @@
 class OrdersController < ApplicationController
+
+  before_filter :authenticate_user!
+
   # GET /orders
   # GET /orders.xml
   def index

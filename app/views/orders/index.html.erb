@@ -1,4 +1,14 @@
-<h1>Listing orders</h1>
+<% if user_signed_in? %>
+	Hello <%= current_user.email %>
+<% end %>
+
+<h1>Orders</h1>
+
+<div id="orders_chart" style="width: 100%; height: 400px">
+</div>
+
+<!-- <div id="chart-container-1" style="width: 100%; height: 400px">
+</div> -->
 
 <table>
   <tr>
@@ -15,9 +25,9 @@
   <tr>
     <td><%= order.order %></td>
     <td><%= order.date %></td>
-    <td><%= order.shipping %></td>
-    <td><%= order.revenue %></td>
-    <td><%= link_to 'Show', order %></td>
+    <td><%= order.shipping? ? "Yes" : "No" %></td>
+    <td><%= number_to_currency(order.revenue) %></td>
+ 		<td><%= link_to 'Show', order %></td>
     <td><%= link_to 'Edit', edit_order_path(order) %></td>
     <td><%= link_to 'Destroy', order, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

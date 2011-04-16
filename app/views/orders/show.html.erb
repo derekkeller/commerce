@@ -15,7 +15,7 @@
   </tr>
   <tr>
     <th>Shipping Status</th>
-    <td><%= @order.shipping %></td>
+    <td><%= @order.shipping? ? "Yes" : "No"  %></td>
   </tr>
   <tr>
     <th>Revenue</th>
