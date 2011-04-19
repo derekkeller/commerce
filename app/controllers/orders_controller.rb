@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
 
-  before_filter :authenticate_user!
+  # load_and_authorize_resource
+
+  # before_filter :authenticate_user!, :except => [:show]
 
   # GET /orders
   # GET /orders.xml
@@ -38,6 +40,7 @@ class OrdersController < ApplicationController
   # GET /orders/1/edit
   def edit
     @order = Order.find(params[:id])
+    authorize! :update, @order
   end
 
   # POST /orders
