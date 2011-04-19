@@ -1,9 +1,12 @@
 Commerce::Application.routes.draw do
+  get "pages/index"
+
   devise_for :users
 
   resources :orders
+  resources :pages
   
-  root :to => 'orders#index'
+  root :to => 'pages#index'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

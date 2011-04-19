@@ -1,7 +1,3 @@
-<% if user_signed_in? %>
-	Hello <%= current_user.email %>
-<% end %>
-
 <h1>Orders</h1>
 
 <div id="orders_chart" style="width: 100%; height: 400px">
@@ -25,7 +21,7 @@
   <tr>
     <td><%= order.order %></td>
     <td><%= order.date %></td>
-    <td><%= order.shipping? ? "Yes" : "No" %></td>
+    <td style="text-align:center"><%= order.shipping? ? "Yes" : "No" %></td>
     <td><%= number_to_currency(order.revenue) %></td>
  		<td><%= link_to 'Show', order %></td>
     <td><%= link_to 'Edit', edit_order_path(order) %></td>

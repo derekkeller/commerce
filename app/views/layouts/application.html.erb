@@ -89,6 +89,19 @@
 	</p>
 
   <div id='body_container'>
+		
+		<div class="header">
+			<% if user_signed_in? %>
+				Welcome <%= current_user.name %>, not you? 
+								<%= link_to 'Logout', destroy_user_session_path %> |
+								<%= link_to 'View Orders', orders_path %> |
+								<%= link_to 'Home', root_path %>
+			<% else %>
+				<%= link_to "Sign in", new_user_session_path %> |
+				<%= link_to "Sign up", new_user_registration_path %>
+			<% end %>
+		</div>
+
     <%= yield %>
   </div>
 </body>
