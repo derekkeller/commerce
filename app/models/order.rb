@@ -9,3 +9,17 @@ class Order < ActiveRecord::Base
     
 
 end
+
+# == Schema Information
+#
+# Table name: orders
+#
+#  id         :integer         not null, primary key
+#  order      :integer
+#  date       :date
+#  shipping   :boolean         default(FALSE)
+#  revenue    :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+

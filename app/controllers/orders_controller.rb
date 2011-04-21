@@ -26,6 +26,29 @@ class OrdersController < ApplicationController
     end
   end
 
+
+
+  # def index
+  #   @orders = current_user.orders
+  # end
+  # 
+  # 
+  # def new
+  #   @order = current_user.orders.build
+  # end
+  # 
+  # def create
+  #   @order = current_user.orders.build(params[:order])
+  #   if @order.save
+  #     redirect_to root_path
+  #   else
+  #     render 'new'
+  #   end
+  # end
+
+
+
+
   # GET /orders/new
   # GET /orders/new.xml
   def new
