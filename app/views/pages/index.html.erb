@@ -3,3 +3,11 @@
 <p>Please <%= link_to "login", new_user_session_path %> or <%= link_to "sign up", new_user_registration_path %> if not a member.</p>
 
 <p>We hope you enjoy your stay.</p>
+
+
+<%= link_to "Sign Up!", new_user_registration_path, :class => 'signup_button' %>
+
+
+<%= link_to image_tag('h12logo.png', :class => 'fake'), orders_path %>
+
+<!-- <%= link_to image_tag('h12.png', :mouseover => 'h12over.png'), orders_path %> -->
