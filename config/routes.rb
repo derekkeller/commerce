@@ -5,6 +5,8 @@ Commerce::Application.routes.draw do
 
   resources :orders
   resources :pages
+
+  post 'orders/index'
   
   root :to => 'pages#index'
   

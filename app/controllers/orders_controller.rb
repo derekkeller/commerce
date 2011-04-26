@@ -8,6 +8,19 @@ class OrdersController < ApplicationController
   # GET /orders.xml
   def index
     @orders = Order.all
+    if params[:start_month].present? &&
+       params[:start_year].present? &&
+       params[:end_month].present? &&
+       params[:end_year].present?
+      starting = Date.civil(params[:start_year].to_i, params[:start_month].to_i =)
+      ending = Date.civil(params[:end_year].to_i, params[:end_month].to_i =1)
+    else
+      starting = Date.today - 1000
+      ending = Date.today
+    end
+    
+    @order_list = Order.where(["date between ? AND ?", starting, ending ]).all
+    @order_revenue_list = Order.sum(:revenue, :conditions => ["date between ? AND ?", starting, ending ])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,8 +38,6 @@ class OrdersController < ApplicationController
       format.xml  { render :xml => @order }
     end
   end
-
-
 
   # def index
   #   @orders = current_user.orders
