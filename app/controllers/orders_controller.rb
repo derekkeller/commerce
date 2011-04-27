@@ -8,12 +8,13 @@ class OrdersController < ApplicationController
   # GET /orders.xml
   def index
     @orders = Order.all
+
     if params[:start_month].present? &&
        params[:start_year].present? &&
        params[:end_month].present? &&
        params[:end_year].present?
-      starting = Date.civil(params[:start_year].to_i, params[:start_month].to_i =)
-      ending = Date.civil(params[:end_year].to_i, params[:end_month].to_i =1)
+      starting = Date.civil(params[:start_year], params[:start_month])
+      ending = Date.civil(params[:end_year], params[:end_month])
     else
       starting = Date.today - 1000
       ending = Date.today
